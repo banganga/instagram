@@ -1,28 +1,21 @@
-<h1 class="section-instagram_feed">Instagram section</h1>
-<div class="section-logos__wrapper">
-  {% if section.settings.instTitle != blank %}
-    <h2 class="text-center section-heading">{{ section.settings.instTitle | escape }}</h2>
-  {% endif %}
+<!doctype html>
+<html lang="en">
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Playfair+Display:900italic' rel='stylesheet' type='text/css'>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <title>Instajam</title>
+  <meta name="description" content="Instajam is a wrapper for the Instagram API.">
+  <meta name="keywords" content="instajam, instagram, javascript, api, mike fowler">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/github.min.css">
+  <link rel="stylesheet" href="css/vendor/ladda.min.css"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-  <div class="page-width--large">
-    <div class="logos-list text-center clearfix">
-      {% for block in section.blocks %}
-        <div class="logos__item" {{ block.shopify_attributes }}>
-          {% if block.settings.instImage != blank %}
-            {{ block.settings.instImage | img_url: '160x160' | img_tag: 'Logo Image', 'section__instagram_feed' }}
-          {% else %}
-            {{ "blank-logo.png" | asset_img_url: '160x160' | img_tag: 'Logo Image', 'section__instagram_feed' }}
-          {% endif %}
-        </div>
-      {% else %}
-        {% for i in (1..4) %}
-          <div class="logos__item">
-            {{ "blank-logo.png" | asset_img_url: '160x160' | img_tag: 'Logo Image', 'section__instagram_feed' }}
-          </div>
-        {% endfor %}
-      {% endfor %}
-    </div>
-  </div>
+  <header role="banner" class="masthead">
+    <h1 class="masthead__branding">Instajam</h1>
+  </header>
 
   <div id="main" class="container" role="main"></div>
 
@@ -55,21 +48,11 @@
     <p>Initialize Instajam, passing in your client ID and redirect URI, obtained from Instagram. Optionally pass in an array of <a href="http://instagram.com/developer/authentication/" target="_blank">permissions</a>.</p>
 
     <pre><code class="javascript">var API = Instajam.init({
-  clientId: '39159bcdbda74377a52599de365340d1',
-  redirectUri: 'https://alex-k-shop.myshopify.com',
+  clientId: 'CLIENT ID',
+  redirectUri: 'REDIRECT URI',
   scope: ['basic', 'comments']
 });</code></pre>
-    <script type="text/javascript">
-      
-      var API = Instajam.init({
-      clientId: '39159bcdbda74377a52599de365340d1',
-      redirectUri: 'https://alex-k-shop.myshopify.com',
-      scope: ['basic', 'comments']
-      });
-      API.user.self.feed.run();
-      sandbox.test(user.self.feed);
-      sandbox.test(user.self.feed).run();
-    </script>
+
     <h2>Dependencies</h2>
 
     <p>None*. Behind the scenes, Instajam uses simple JSONP calls to retrieve data. Call the endpoint you want and pass it a callback method.</p>
@@ -88,15 +71,10 @@
 
     <small>*For certain endpoints, we modify the response slightly as a convenience.</small>
 
-    <h3>Users here MY CODE WILL BE SHOW</h3><script type="text/javascript">
-    
-    {{API.user.self.feed}}
-    
-    console.log(user.self.feed);
-    </script>
+    <h3>Users</h3>
+
     <h4>Fetching the authenticated user's profile</h4>
-    
-    
+
     <pre><code class="javascript">API.user.self.profile(callback);</code></pre>
 
     <% if (authenticated) { %>
@@ -291,13 +269,18 @@
     <p class="clear"><button class="ladda-button align-right js-try-it" data-method="<%= method %>" data-size="small" data-style="expand-right" data-color="purple"><span class="ladda-label">Try it!</span></button></p>
   </script>
 
-  <a class="github-ribbon" href="http://github.com/mikefowler/instajam">Fork me on Github</a>
+  <a class="github-ribbon" href="http://github.com/mikefowler/instajam"><img src="images/github.png" alt="Fork me on Github" /></a>
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
-  
+  <script src="js/vendor/spin.min.js"></script>
+  <script src="js/vendor/ladda.min.js"></script>
+
+  <script src="src/instajam.js"></script>
+  <script src="js/app.js"></script>
+
   <script type="text/javascript">
 
     var _gaq = _gaq || [];
@@ -312,55 +295,5 @@
 
   </script>
 
-
-
-</div>
-{% schema %}
-  {
-    "name": "instagramSection",
-    "class": "section-instagram_feed",
-    "max_blocks": 6,
-    "settings": [
-      {
-        "type": "text",
-        "id": "instTitle",
-        "label": "Heading",
-        "default": "Instagram feed"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "image_picker",
-        "name": "instagram_content_name",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "instImage",
-            "label": "Image",
-            "info": "Recommended ratio 1:1 (square)"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Instagram feed",
-        "category": "Images",
-        "blocks": [
-          {
-            "type": "image_picker"
-          },
-          {
-            "type": "image_picker"
-          },
-          {
-            "type": "image_picker"
-          },
-          {
-            "type": "image_picker"
-          }
-        ]
-      }
-    ]
-  }
-{% endschema %}
+</body>
+</html>
