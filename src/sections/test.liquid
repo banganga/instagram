@@ -1,23 +1,31 @@
-<h1 class="section-instagram_feed">Instagram section</h1>
-<div class="section-logos__wrapper">
-  {% if section.settings.instTitle != blank %}
-    <h2 class="text-center section-heading">{{ section.settings.instTitle | escape }}</h2>
+<!-- invert logo color -->
+  {% if section.settings.invert_logo_color%}
+            {% assign styleColor = "invert-section-logos" %}
+          {% else %}
+            {% assign styleColor = "section-logos" %}
+  {% endif %}
+<!-- end of invert logo color -->
+
+<div class="{{styleColor}}__wrapper">
+
+  {% if section.settings.title != blank %}
+    <h2 class="text-center section-heading">{{ section.settings.title | escape }}</h2>
   {% endif %}
 
   <div class="page-width--large">
     <div class="logos-list text-center clearfix">
       {% for block in section.blocks %}
         <div class="logos__item" {{ block.shopify_attributes }}>
-          {% if block.settings.instImage != blank %}
-            {{ block.settings.instImage | img_url: '160x160' | img_tag: 'Logo Image', 'section__instagram_feed' }}
+          {% if block.settings.image != blank %}
+            {{ block.settings.image | img_url: '160x160' | img_tag: 'Logo Image', 'logos__image' }}
           {% else %}
-            {{ "blank-logo.png" | asset_img_url: '160x160' | img_tag: 'Logo Image', 'section__instagram_feed' }}
+            {{ "blank-logo.png" | asset_img_url: '160x160' | img_tag: 'Logo Image', 'logos__image' }}
           {% endif %}
         </div>
       {% else %}
         {% for i in (1..4) %}
           <div class="logos__item">
-            {{ "blank-logo.png" | asset_img_url: '160x160' | img_tag: 'Logo Image', 'section__instagram_feed' }}
+            {{ "blank-logo.png" | asset_img_url: '160x160' | img_tag: 'Logo Image', 'logos__image' }}
           </div>
         {% endfor %}
       {% endfor %}
@@ -25,27 +33,33 @@
   </div>
 
 </div>
+
 {% schema %}
   {
-    "name": "instagramSection",
-    "class": "section-instagram_feed",
-    "max_blocks": 6,
+    "name": "Instagram",
+    "class": "section-logos",
+    "max_blocks": 8,
     "settings": [
       {
         "type": "text",
-        "id": "instTitle",
+        "id": "title",
         "label": "Heading",
-        "default": "Instagram feed"
+        "default": "Instagram section"
+      },
+      {
+        "type": "checkbox",
+        "id": "invert_logo_color",
+        "label": "Invert color"
       }
     ],
     "blocks": [
       {
-        "type": "image_picker",
-        "name": "instagram_content_name",
+        "type": "logo_image",
+        "name": "photo",
         "settings": [
           {
             "type": "image_picker",
-            "id": "instImage",
+            "id": "image",
             "label": "Image",
             "info": "Recommended ratio 1:1 (square)"
           }
@@ -54,20 +68,20 @@
     ],
     "presets": [
       {
-        "name": "Instagram feed",
+        "name": "Logo List",
         "category": "Images",
         "blocks": [
           {
-            "type": "image_picker"
+            "type": "logo_image"
           },
           {
-            "type": "image_picker"
+            "type": "logo_image"
           },
           {
-            "type": "image_picker"
+            "type": "logo_image"
           },
           {
-            "type": "image_picker"
+            "type": "logo_image"
           }
         ]
       }
