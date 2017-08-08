@@ -34,6 +34,7 @@ $(document).ready(function() {
   sections.register('featured-collection-section', theme.FeaturedCollectionSection);
   sections.register('featured-product-section', theme.FeaturedProductSection);
   sections.register('password-header', theme.PasswordHeader);
+  sections.register('instagram-feed-section', theme.InstagramFeedSection);
 
   $('[data-tooltip!=""]').qtip({
     content: {attr: 'data-tooltip'},

@@ -86,7 +86,7 @@ theme.CollectionTemplate.prototype = _.extend({}, theme.CollectionTemplate.proto
 
 
     $collectionFilter.css('visibility', 'visible');
-
+    console.log("CollectionTemplate ran");
   }
 
 });

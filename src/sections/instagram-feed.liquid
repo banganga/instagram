@@ -1,0 +1,62 @@
+<!-- invert logo color -->
+  {% if section.settings.invert_logo_color%}
+            {% assign styleColor = "invert-section-logos" %}
+          {% else %}
+            {% assign styleColor = "section-logos" %}
+  {% endif %}
+<!-- end of invert logo color -->
+
+
+<div class="{{styleColor}}__wrapper">
+
+  {% if section.settings.title != blank %}
+    <h2 class="text-center section-heading">{{ section.settings.title | escape }}</h2>
+  {% endif %}
+
+  <div class="page-width--large template-instafeed">
+    <div class="logos-list text-center clearfix">
+      <script type="text/javascript">
+       x = "{{ section.settings.access-token }}";
+      </script>
+      <div id="instafeed">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Instagram feed",
+    "class": "section-logos",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Our Instagram"
+      },
+      {
+        "type": "checkbox",
+        "id": "invert_logo_color",
+        "label": "Invert color"
+      },
+      {
+        "type": "paragraph",
+        "content": "Please generate and copy an access token code here: [Generate access token](http://instagram.pixelunion.net/)"
+      },
+      {
+        "type": "text",
+        "id": "access-token",
+        "label": "and paste them here",
+        "default": "your access token"
+      }      
+    ],
+    "presets": [
+      {
+        "name": "Instagram feed",
+        "category": "Images"
+      }
+    ]
+  }
+{% endschema %}
