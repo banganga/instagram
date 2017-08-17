@@ -1,0 +1,96 @@
+<!-- invert logo color -->
+{% if section.settings.invert_logo_color%}
+  {% assign styleColor = "invert-section-logos" %}
+{% else %}
+  {% assign styleColor = "section-logos" %}
+{% endif %}
+<!-- end of invert logo color -->
+
+
+<div class="{{styleColor}}__wrapper">
+
+  {% if section.settings.title != blank %}
+    <h2 class="text-center section-heading">{{ section.settings.title | escape }}</h2>
+  {% endif %}
+
+  {% assign inst_link = '{{link}}' %}
+  {% assign inst_image = '{{image}}' %}
+
+  {% if section.settings.image_size == 'small' %}
+    {% assign inst_size = '185' %}
+  {% elsif section.settings.image_size == 'medium' %}
+    {% assign inst_size = '240' %}
+  {% elsif section.settings.image_size == 'big' %}
+    {% assign inst_size = '320' %}
+  {% endif %}
+
+  <div class="page-width--large template-instafeed">
+    <div class="logos-list text-center clearfix">
+      <script type="text/javascript">
+        x = "{{ section.settings.access-token }}";
+        limit = {{ section.settings.inst_limit }};
+        instafeed_template = '<a href="{{inst_image}}" data-lightbox="example-set" ><img src={{inst_image}} width="{{inst_size}}px" height="{{inst_size}}px" alt="instagram feed" /></a>';
+      </script>
+      <div id="instafeed">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Instagram feed",
+    "class": "section-logos",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Our Instagram"
+      },
+      {
+        "type": "checkbox",
+        "id": "invert_logo_color",
+        "label": "Invert color"
+      },
+      {
+        "type": "paragraph",
+        "content": "Please generate and copy an access token code here: [Generate access token](http://instagram.pixelunion.net/)"
+      },
+      {
+        "type": "text",
+        "id": "access-token",
+        "label": "and paste them here",
+        "default": "your access token"
+      },
+      {
+        "type": "text",
+        "id": "inst_limit",
+        "label": "Number of images",
+        "default": "3"
+      },
+      {
+        "type": "select",
+        "id": "image_size",
+        "label": "Change image size",
+        "options": [
+          { "value": "small", "label": "Small" },
+          { "value": "medium", "label": "Medium" },
+          { "value": "big", "label": "Big" }
+        ],
+        "default": "small"
+      },
+      {
+        "type": "paragraph",
+        "content": "To see the changes, please click 'save'"
+      }        
+    ],
+    "presets": [
+      {
+        "name": "Instagram feed",
+        "category": "Images"
+      }
+    ]
+  }
+{% endschema %}
