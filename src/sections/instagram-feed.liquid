@@ -13,10 +13,23 @@
     <h2 class="text-center section-heading">{{ section.settings.title | escape }}</h2>
   {% endif %}
 
+  {% assign inst_link = '{{link}}' %}
+  {% assign inst_image = '{{image}}' %}
+
+  {% if section.settings.image_size == 'small' %}
+    {% assign inst_size = '185' %}
+  {% elsif section.settings.image_size == 'medium' %}
+    {% assign inst_size = '240' %}
+  {% elsif section.settings.image_size == 'big' %}
+    {% assign inst_size = '320' %}
+  {% endif %}
+
   <div class="page-width--large template-instafeed">
     <div class="logos-list text-center clearfix">
       <script type="text/javascript">
-       x = "{{ section.settings.access-token }}";
+        x = "{{ section.settings.access-token }}";
+        limit = {{ section.settings.inst_limit }};
+        instafeed_template = '<a href="{{inst_image}}" data-lightbox="example-set" ><img src={{inst_image}} width="{{inst_size}}px" height="{{inst_size}}px" alt="instagram feed" /></a>';
       </script>
       <div id="instafeed">
       </div>
@@ -50,7 +63,28 @@
         "id": "access-token",
         "label": "and paste them here",
         "default": "your access token"
-      }      
+      },
+      {
+        "type": "text",
+        "id": "inst_limit",
+        "label": "Number of images",
+        "default": "3"
+      },
+      {
+        "type": "select",
+        "id": "image_size",
+        "label": "Change image size",
+        "options": [
+          { "value": "small", "label": "Small" },
+          { "value": "medium", "label": "Medium" },
+          { "value": "big", "label": "Big" }
+        ],
+        "default": "small"
+      },
+      {
+        "type": "paragraph",
+        "content": "To see the changes, please click 'save'"
+      }        
     ],
     "presets": [
       {
