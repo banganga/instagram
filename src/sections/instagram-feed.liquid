@@ -12,24 +12,44 @@
   {% if section.settings.title != blank %}
     <h2 class="text-center section-heading">{{ section.settings.title | escape }}</h2>
   {% endif %}
-
+  <!-- assignment variables for pasting liquid in Javascript -->
   {% assign inst_link = '{{link}}' %}
   {% assign inst_image = '{{image}}' %}
-
+  {% if section.settings.enable_image_text %}
+    {% assign inst_image_caption = '<p>{{caption}}</p>' %}
+  {% else assign inst_image_caption = '' %}
+  {% endif %}
+  <!-- End of assignment variables for pasting liquid in Javascript -->
+  <!-- Sizes of images and div's -->
   {% if section.settings.image_size == 'small' %}
-    {% assign inst_size = '185' %}
+    {% assign inst_size = '180' %}
+    {% if section.settings.enable_image_text %}
+      {% assign inst_div_height = inst_size | plus: 98 %}
+    {% else %}
+      {% assign inst_div_height = inst_size | plus: 10 %}
+    {% endif %}
   {% elsif section.settings.image_size == 'medium' %}
     {% assign inst_size = '240' %}
+    {% if section.settings.enable_image_text %}
+      {% assign inst_div_height = inst_size | plus: 98 %}
+    {% else %}
+      {% assign inst_div_height = inst_size | plus: 10 %}
+    {% endif %}
   {% elsif section.settings.image_size == 'big' %}
     {% assign inst_size = '320' %}
+    {% if section.settings.enable_image_text %}
+      {% assign inst_div_height = inst_size | plus: 98 %}
+    {% else %}
+      {% assign inst_div_height = inst_size | plus: 10 %}
+    {% endif %}
   {% endif %}
-
+  <!-- End of Sizes of images and div's -->
   <div class="page-width--large template-instafeed">
     <div class="logos-list text-center clearfix">
       <script type="text/javascript">
         x = "{{ section.settings.access-token }}";
         limit = {{ section.settings.inst_limit }};
-        instafeed_template = '<a href="{{inst_image}}" data-lightbox="example-set" ><img src={{inst_image}} width="{{inst_size}}px" height="{{inst_size}}px" alt="instagram feed" /></a>';
+        instafeed_template = '<div class="instagram_images" style="width: {{inst_size}}px; height: {{inst_div_height}}px" ><a href="{{inst_image}}" data-lightbox="example-set" ><img src={{inst_image}} width="{{inst_size}}" height="{{inst_size}}px" alt="instagram feed" /></a>{{inst_image_caption}}</div>';
       </script>
       <div id="instafeed">
       </div>
@@ -53,6 +73,11 @@
         "type": "checkbox",
         "id": "invert_logo_color",
         "label": "Invert color"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_image_text",
+        "label": "Enable image text"
       },
       {
         "type": "paragraph",

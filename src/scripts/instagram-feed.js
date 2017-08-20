@@ -25,5 +25,4 @@ theme.InstagramFeed = (function() {
     template: instafeed_template
 		});
   feed.run();
-  console.log(feed.options.template);
 })();
