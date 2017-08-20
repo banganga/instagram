@@ -5,7 +5,7 @@
 
   <div>
     <p class="field">
-      <label for="address_country">Country</label>
+      <label for="address_country">{{ "cart.shipping-calculator.country" | t }}</label>
       <select id="address_country" name="address[country]" data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}">{{ country_option_tags }}</select>
     </p>
     <p class="field" id="address_province_container" style="display:none;">
@@ -13,7 +13,7 @@
       <select id="address_province" name="address[province]" data-default="{% if shop.customer_accounts_enabled and customer and customer.default_address.province != '' %}{{ customer.default_address.province }}{% endif %}"></select>
     </p>
     <p class="field">
-      <label for="address_zip">Zip/Postal Code</label>
+      <label for="address_zip">{{ "cart.shipping-calculator.postcode" | t }}</label>
       <input type="text" id="address_zip" name="address[zip]"{% if shop.customer_accounts_enabled and customer %} value="{{ customer.default_address.zip }}"{% endif %} />
     </p>
     <p class="field text-center">

@@ -546,6 +546,212 @@
           "inverted": false,
           "disable_padding": true
         }
+      },
+      "page-constructor": {
+        "type": "page-constructor",
+        "blocks": {
+          "1502234545681": {
+            "type": "content",
+            "settings": {
+              "title": "Columns",
+              "content": "<p>Open this page in the theme editor and click on \"Page Constructor\" configuration in the left menu.<\/p>\n<p>Set the column width to 66.6% which means the content&nbsp;will take two&nbsp;thirds of the page&nbsp;width.<\/p>\n<p>Then create a \"Content Block\" and set its column width to 33.3% (one third).<\/p>\n<p>You will get a two-column page. There are many more column size option so that you can split your page on up to five columns.<\/p>",
+              "button_label": "",
+              "button_link": "",
+              "align_text": "left",
+              "width": "one-third"
+            }
+          },
+          "1502235758390": {
+            "type": "content",
+            "settings": {
+              "title": "Use different type of blocks",
+              "content": "<p>There are different type of content you can display on your page using different blocks.<\/p>",
+              "button_label": "Example Button",
+              "button_link": "shopify:\/\/pages\/custom-1",
+              "align_text": "center",
+              "width": "one-whole"
+            }
+          },
+          "1502235685970": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/2000x1200.jpg",
+              "image_size": "768x768",
+              "crop_type": "center",
+              "link": "",
+              "width": "one-half"
+            }
+          },
+          "1502235710320": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/jiiswpwxpd8-celia-michon.jpg",
+              "image_size": "768x768",
+              "crop_type": "center",
+              "link": "",
+              "width": "one-half"
+            }
+          },
+          "1502235915951": {
+            "type": "content",
+            "settings": {
+              "title": "Grid examples",
+              "content": "",
+              "button_label": "",
+              "button_link": "",
+              "align_text": "center",
+              "width": "one-whole"
+            }
+          },
+          "1502235954573": {
+            "type": "content",
+            "settings": {
+              "title": "25% A quarter",
+              "content": "<p>Example text. Can be anything. Really.<\/p>",
+              "button_label": "",
+              "button_link": "",
+              "align_text": "left",
+              "width": "one-quarter"
+            }
+          },
+          "1502235999211": {
+            "type": "content",
+            "settings": {
+              "title": "50% Two Quarters",
+              "content": "<p>Text + call to action<\/p>",
+              "button_label": "Example button",
+              "button_link": "shopify:\/\/collections\/all",
+              "align_text": "center",
+              "width": "two-quarters"
+            }
+          },
+          "1502236076805": {
+            "type": "menu",
+            "settings": {
+              "title": "25% A quarter",
+              "menu": "footer",
+              "align_text": "right",
+              "align_items": "right",
+              "width": "one-quarter"
+            }
+          },
+          "1502236335531": {
+            "type": "content",
+            "settings": {
+              "title": "",
+              "content": "",
+              "button_label": "",
+              "button_link": "",
+              "align_text": "left",
+              "width": "one-quarter"
+            }
+          },
+          "1502236220823": {
+            "type": "content",
+            "settings": {
+              "title": "Page break",
+              "content": "<p>Sometimes you want the next column to be on a new row even if it fits to the grid. Use \"Page break (clear fix)\" block for that. Let me demonstrate this case:<\/p>",
+              "button_label": "",
+              "button_link": "",
+              "align_text": "center",
+              "width": "one-half"
+            }
+          },
+          "1502236376074": {
+            "type": "content",
+            "settings": {
+              "title": "This is a one-third",
+              "content": "<p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/em><\/p>",
+              "button_label": "",
+              "button_link": "",
+              "align_text": "left",
+              "width": "one-third"
+            }
+          },
+          "1502236490981": {
+            "type": "content",
+            "settings": {
+              "title": "Two-thirds with less content",
+              "content": "<p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<\/em><\/p>",
+              "button_label": "",
+              "button_link": "",
+              "align_text": "left",
+              "width": "two-thirds"
+            }
+          },
+          "1502236528121": {
+            "type": "content",
+            "settings": {
+              "title": "Another two-thirds",
+              "content": "<p>It fits to the space left on this line. To make the next two-thirds column go on another line. Insert a \"Page break\" block before it.<\/p>",
+              "button_label": "",
+              "button_link": "",
+              "align_text": "left",
+              "width": "two-thirds"
+            }
+          },
+          "1502236776881": {
+            "type": "clearfix",
+            "settings": {}
+          },
+          "1502236785633": {
+            "type": "content",
+            "settings": {
+              "title": "I'm on new line",
+              "content": "<p>Even though I could fit on&nbsp;the line above :P<\/p>",
+              "button_label": "",
+              "button_link": "",
+              "align_text": "left",
+              "width": "two-thirds"
+            }
+          },
+          "1502236860523": {
+            "type": "content",
+            "settings": {
+              "title": "Enjoy!",
+              "content": "",
+              "button_label": "",
+              "button_link": "",
+              "align_text": "center",
+              "width": "one-whole"
+            }
+          },
+          "1502751722156": {
+            "type": "clearfix",
+            "settings": {}
+          },
+          "1502751729189": {
+            "type": "clearfix",
+            "settings": {}
+          }
+        },
+        "block_order": [
+          "1502234545681",
+          "1502235758390",
+          "1502235685970",
+          "1502235710320",
+          "1502235915951",
+          "1502235954573",
+          "1502235999211",
+          "1502236076805",
+          "1502751729189",
+          "1502236335531",
+          "1502236220823",
+          "1502751722156",
+          "1502236376074",
+          "1502236490981",
+          "1502236528121",
+          "1502236776881",
+          "1502236785633",
+          "1502236860523"
+        ],
+        "settings": {
+          "display_page_title": true,
+          "page_width": "wide",
+          "column_width": "two-thirds",
+          "content_location": "left",
+          "page_content": ""
+        }
       }
     },
     "content_for_index": [

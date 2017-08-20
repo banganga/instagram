@@ -115,7 +115,9 @@
       "shipping_rates": "shipping rates available for",
       "starting_at": "starting at",
       "shipping_rate_available": "There is one shipping rate available for",
-      "do_not_ship": "We do not ship to this destination."
+      "do_not_ship": "We do not ship to this destination.",
+      "country": "Country",
+      "postcode": "Zip/Postal Code"
     }
   },
   "collections": {
