@@ -16,9 +16,12 @@
         – {{ discount_percent }}%
       </div>
     </div>
-  {% endif %}
-  <a href="{{ product_url }}" class="product-card__image">
-    {{ product.featured_image.src | img_url: '400x400', crop: 'center' | img_tag: product.title }}
+  {% endif %}<!-- collection page -->
+  <a href="{{ product_url }}" class="product-card__image" onmouseover="">
+    <div class="reveal">
+      <img src="{{ product.images.first | img_url: '400x400', crop: 'center'}}" alt="{{ product.images.first.alt | escape }}">
+      <img class="hidden" src="{{ product.images.last | img_url: '400x400', crop: 'center' }}" alt="{{ product.images.last.alt | escape }}" />
+    </div>
   </a>
   <div class="product-card__info">
     {% if settings.app_product_reviews_enabled %}

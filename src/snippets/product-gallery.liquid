@@ -4,7 +4,7 @@
       <ul class="no-bullets js-product-thumbs" data-arrows="{{ section.settings.thumbs_arrows }}">
         {% for image in product.images %}
           <li>
-            <div class="thumb-overlay">
+            <div class="thumb-overlay"><!-- product page image -->
               <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}" data-id="{{ image.id }}">
             </div>
           </li>
