@@ -81,7 +81,7 @@ $product-card-ribbon-z-index: 4;
     } @else {
       min-height: $product-card-height;
     }
-    line-height: $product-card-height;
+    /* line-height: $product-card-height; */
     text-align: center;
 
     img{
