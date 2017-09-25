@@ -1,0 +1,35 @@
+<script type="text/javascript">
+  var verticalDirection = false;
+</script>
+<style>
+  #hor-slider .slick-prev {
+    top: 40%;
+    left: 0;
+    transform: rotate(0);
+  }
+  #hor-slider .slick-next {
+    top: 40%;
+    right: 0;
+    transform: rotate(0);
+  }
+</style>
+<div class="product-images__image grid__item one-whole">
+  <ul class="no-bullets js-product-image" data-arrows="{{ section.settings.gallery_arrows }}">
+    {% for image in product.images %}
+      <li>
+        <img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}" data-original="{{ image.src | img_url: 'original' }}" data-zoom-type="{{ section.settings.gallery_zoom_type }}">
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+<div class="product-images__thumbs grid__item one-whole" id="hor-slider">
+  <ul class="no-bullets js-product-thumbs" data-arrows="{{ section.settings.thumbs_arrows }}">
+    {% for image in product.images %}
+      <li>
+        <div class="thumb-overlay">
+          <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}" data-id="{{ image.id }}">
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

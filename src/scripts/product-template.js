@@ -1,6 +1,7 @@
 /*******************************************************************************
     Product page section
   *****************************************************************************/
+
 theme.ProductImagesSlider = (function() {
   this.$sliderThumbs = null;
   this.$sliderImage = null;
@@ -15,6 +16,7 @@ theme.ProductImagesSlider = (function() {
     if ($wrapper.hasClass('product-images--single')) {
       return false;
     }
+
     var sliderId = $wrapper.attr('id');
     this.$sliderThumbs = $wrapper.find('.' + classes.thumbs);
     this.$sliderImage = $wrapper.find('.' + classes.image);
@@ -26,7 +28,7 @@ theme.ProductImagesSlider = (function() {
       arrows: this.$sliderThumbs.data('arrows'),
       centerMode: false,
       focusOnSelect: true,
-      vertical: true,
+      vertical: verticalDirection,
       verticalSwiping: true
     };
     this.imageSettings = {

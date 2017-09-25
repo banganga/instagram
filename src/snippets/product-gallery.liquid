@@ -1,25 +1,10 @@
 {% if product.images.size > 1 %}
   <div class="product-images page-width grid grid--full" id="product_{{ product.id }}_images">
-    <div class="product-images__thumbs grid__item one-fifth">
-      <ul class="no-bullets js-product-thumbs" data-arrows="{{ section.settings.thumbs_arrows }}">
-        {% for image in product.images %}
-          <li>
-            <div class="thumb-overlay"><!-- product page image -->
-              <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}" data-id="{{ image.id }}">
-            </div>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-    <div class="product-images__image grid__item four-fifths">
-      <ul class="no-bullets js-product-image" data-arrows="{{ section.settings.gallery_arrows }}">
-        {% for image in product.images %}
-          <li>
-            <img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}" data-original="{{ image.src | img_url: 'original' }}" data-zoom-type="{{ section.settings.gallery_zoom_type }}">
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
+    {% if section.settings.gallery_direction == 'vertical' %}
+      {% include 'vertical-gallery' %}
+    {% else %}
+      {% include 'horizontal-gallery' %}
+    {% endif %}
   </div>
 {% else %}
   <div class="product-images product-images--single grid grid--full" id="product_{{ product.id }}_images">
